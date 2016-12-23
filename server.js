@@ -10,12 +10,17 @@ var app = express();
 require('dotenv').load();
 require('./app/config/passport')(passport);
 
+
+app.use(require("body-parser").urlencoded({ extended: false }));
+
 mongoose.connect(process.env.MONGO_URI);
 mongoose.Promise = global.Promise;
 
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use('/common', express.static(process.cwd() + '/app/common'));
+app.use('/MyJs', express.static(process.cwd() + '/app/MyJs'));
+//app.use('/polls', express.static(process.cwd() + '/app/common'));
 
 app.use(session({
 	secret: 'secretClementine',
