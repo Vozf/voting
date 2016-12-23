@@ -7,3 +7,9 @@ header{
 #homebut{
     background-color:#f0f0f0;
 }
+#hom{
+  font-size: 24px;
+  padding-left: 10px;
+  color: black;
+float:left;
+}
